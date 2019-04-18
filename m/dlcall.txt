@@ -1,0 +1,5 @@
+without optimization:
+clingo-dl -V0 --out-atomf=%s. m/myencoding.lp {instance} | head -n1 | clingo - m/myoutput.lp -V0 --out-atomf=%s. | head -n1 | viz
+optimization:
+clingo-dl -V0 --out-atomf=%s. m/myencoding.lp -q1,0 {instance} | grep move | clingo - m/myoutput.lp -V0 --out-atomf=%s. | head -n1 > sol.lp;
+cat sol.lp | viz
